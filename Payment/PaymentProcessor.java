@@ -1,7 +1,10 @@
 package OOPTasks.Payment;
 
-public abstract class PaymentProcessor {
-    public void processor() {
+import java.util.List;
+import java.util.function.Consumer;
 
+public abstract class PaymentProcessor<T extends Payment> {
+    public void processor(List<T> payments, Consumer<T> processingStrategy) {
+        payments.forEach(processingStrategy);
     }
 }
